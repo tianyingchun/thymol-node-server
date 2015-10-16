@@ -1,6 +1,6 @@
 var thymolServerConfiguration = {
   host: "localhost",                      // Server host defaults to 0.0.0.0
-  port: 3000,                             // Server listening port defaults to 3000
+  port:  process.env.PORT || 3000,                             // Server listening port defaults to 3000
   webappRoot: __dirname + "/../default",   // Path to templates root directory
   templatePath : "",
   debug : true,
@@ -28,5 +28,5 @@ var thymolServerConfiguration = {
     templateSuffix: ".html"
   }
 };
-  
+
 module.exports = thymolServerConfiguration;

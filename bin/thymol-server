@@ -2,6 +2,7 @@
 var debug = require('debug')('thymol-server');
 var thymolEngine = require('../thymol-engine');
 var config = thymolEngine.get( "config" );
+
 var server = thymolEngine.listen( config.port, config.host, function() {
   debug('Thymol node server listening on port ' + server.address().port);
 });

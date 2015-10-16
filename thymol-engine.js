@@ -3,6 +3,8 @@ var express = require( "express" );
 var logger = require( "morgan" );
 var cookieParser = require( "cookie-parser" );
 var bodyParser = require( "body-parser" );
+var favicon = require('serve-favicon');
+var path = require('path');
 
 var templates = require( "./routes/templates" );
 var thymolEngine = express();
@@ -35,7 +37,7 @@ serverConfiguration.host = serverConfiguration.host || "0.0.0.0";
 serverConfiguration.port = serverConfiguration.port || 3000;
 
 thymolEngine.set( "config", serverConfiguration );
-
+thymolEngine.use(favicon(path.join(__dirname, '../../public/favicon.ico')));
 thymolEngine.use( logger( "dev" ) );
 thymolEngine.use( bodyParser.json() );
 thymolEngine.use( bodyParser.urlencoded( {
